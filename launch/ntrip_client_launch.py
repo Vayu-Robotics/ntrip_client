@@ -8,19 +8,21 @@ from launch.actions import SetEnvironmentVariable
 def generate_launch_description():
       return LaunchDescription([
           # Declare arguments with default values
-          DeclareLaunchArgument('host',                  default_value='20.185.11.35'),
+          DeclareLaunchArgument('host',                  default_value='rtk2go.com'),
           DeclareLaunchArgument('port',                  default_value='2101'),
-          DeclareLaunchArgument('mountpoint',            default_value='VTRI_RTCM3'),
+          DeclareLaunchArgument('mountpoint',            default_value='ACACU'),
           DeclareLaunchArgument('ntrip_version',         default_value='None'),
           DeclareLaunchArgument('authenticate',          default_value='True'),
-          DeclareLaunchArgument('username',              default_value='user'),
-          DeclareLaunchArgument('password',              default_value='pass'),
+          DeclareLaunchArgument('username',              default_value='vinay@vayurobotics.com'),
+          DeclareLaunchArgument('password',              default_value='none'),
           DeclareLaunchArgument('ssl',                   default_value='False'),
           DeclareLaunchArgument('cert',                  default_value='None'),
           DeclareLaunchArgument('key',                   default_value='None'),
           DeclareLaunchArgument('ca_cert',               default_value='None'),
           DeclareLaunchArgument('debug',                 default_value='false'),
-          DeclareLaunchArgument('rtcm_message_package',  default_value='mavros_msgs'),
+          DeclareLaunchArgument('rtcm_message_package',  default_value='rtcm_msgs'),
+          DeclareLaunchArgument('default_nmea',          default_value='$GPGGA,222740.850,3725.376,N,12208.293,W,1,12,1.0,0.0,M,0.0,M,,*70'),
+          
 
           # Pass an environment variable to the node
           SetEnvironmentVariable(name='NTRIP_CLIENT_DEBUG', value=LaunchConfiguration('debug')),
@@ -75,7 +77,9 @@ def generate_launch_description():
                     'reconnect_attempt_wait_seconds': 5,
 
                     # How many seconds is acceptable in between receiving RTCM. If RTCM is not received for this duration, the node will attempt to reconnect
-                    'rtcm_timeout_seconds': 4
+                    'rtcm_timeout_seconds': 4,
+
+                    'default_nmea': LaunchConfiguration('default_nmea')
                   }
                 ],
                 # Uncomment the following section and replace "/gq7/nmea/sentence" with the topic you are sending NMEA on if it is not the one we requested

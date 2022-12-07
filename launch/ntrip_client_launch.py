@@ -8,13 +8,13 @@ from launch.actions import SetEnvironmentVariable
 def generate_launch_description():
       return LaunchDescription([
           # Declare arguments with default values
-          DeclareLaunchArgument('host',                  default_value='rtk2go.com'),
+          DeclareLaunchArgument('host',                  default_value='rtgpsout.unavco.org'),
           DeclareLaunchArgument('port',                  default_value='2101'),
-          DeclareLaunchArgument('mountpoint',            default_value='ACACU'),
+          DeclareLaunchArgument('mountpoint',            default_value='AB11_RTCM3'),
           DeclareLaunchArgument('ntrip_version',         default_value='None'),
           DeclareLaunchArgument('authenticate',          default_value='True'),
-          DeclareLaunchArgument('username',              default_value='vinay@vayurobotics.com'),
-          DeclareLaunchArgument('password',              default_value='none'),
+          DeclareLaunchArgument('username',              default_value='vhegde'),
+          DeclareLaunchArgument('password',              default_value='bzlVZfk5'),
           DeclareLaunchArgument('ssl',                   default_value='False'),
           DeclareLaunchArgument('cert',                  default_value='None'),
           DeclareLaunchArgument('key',                   default_value='None'),

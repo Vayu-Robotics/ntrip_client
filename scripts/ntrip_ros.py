@@ -162,8 +162,10 @@ class NTRIPRos(Node):
     return True
 
   def publish_default_nmea(self):
-    nmea = self.get_parameter('default_nmea').value
-    self._client.send_nmea(nmea)
+    # nmea = self.get_parameter('default_nmea').value
+    # self._client.send_nmea(nmea)
+    # print('pass default nmea')
+    pass
 
   def stop(self):
     self.get_logger().info('Stopping RTCM publisher')

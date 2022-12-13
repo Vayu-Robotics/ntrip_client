@@ -10,7 +10,7 @@ def generate_launch_description():
           # Declare arguments with default values
           DeclareLaunchArgument('host',                  default_value='rtgpsout.unavco.org'),
           DeclareLaunchArgument('port',                  default_value='2101'),
-          DeclareLaunchArgument('mountpoint',            default_value='AB11_RTCM3'),
+          DeclareLaunchArgument('mountpoint',            default_value='SLAC_RTCM3'),  # AB11_RTCM3
           DeclareLaunchArgument('ntrip_version',         default_value='None'),
           DeclareLaunchArgument('authenticate',          default_value='True'),
           DeclareLaunchArgument('username',              default_value='vhegde'),

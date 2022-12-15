@@ -56,7 +56,6 @@ class NTRIPRos(Node):
         ('reconnect_attempt_max', NTRIPClient.DEFAULT_RECONNECT_ATTEMPT_MAX),
         ('reconnect_attempt_wait_seconds', NTRIPClient.DEFAULT_RECONNECT_ATEMPT_WAIT_SECONDS),
         ('rtcm_timeout_seconds', NTRIPClient.DEFAULT_RTCM_TIMEOUT_SECONDS),
-        ('default_nmea', '')
       ]
     )
 
@@ -156,16 +155,7 @@ class NTRIPRos(Node):
     # Start the timer that will check for RTCM data
     self._rtcm_timer = self.create_timer(0.1, self.publish_rtcm)
     
-    if self.get_parameter('default_nmea').value is not '':
-      self.get_logger().info(f'Using default nmea: {self.get_parameter("default_nmea").value}')
-      self._default_nmea_timer = self.create_timer(0.1, self.publish_default_nmea)
     return True
-
-  def publish_default_nmea(self):
-    # nmea = self.get_parameter('default_nmea').value
-    # self._client.send_nmea(nmea)
-    # print('pass default nmea')
-    pass
 
   def stop(self):
     self.get_logger().info('Stopping RTCM publisher')

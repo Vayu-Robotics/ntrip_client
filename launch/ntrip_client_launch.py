@@ -21,7 +21,6 @@ def generate_launch_description():
           DeclareLaunchArgument('ca_cert',               default_value='None'),
           DeclareLaunchArgument('debug',                 default_value='false'),
           DeclareLaunchArgument('rtcm_message_package',  default_value='rtcm_msgs'),
-          DeclareLaunchArgument('default_nmea',          default_value='$GPGGA,222740.850,3725.376,N,12208.293,W,1,12,1.0,0.0,M,0.0,M,,*70'),
           
 
           # Pass an environment variable to the node
@@ -78,8 +77,6 @@ def generate_launch_description():
 
                     # How many seconds is acceptable in between receiving RTCM. If RTCM is not received for this duration, the node will attempt to reconnect
                     'rtcm_timeout_seconds': 4,
-
-                    'default_nmea': LaunchConfiguration('default_nmea')
                   }
                 ],
                 # Uncomment the following section and replace "/gq7/nmea/sentence" with the topic you are sending NMEA on if it is not the one we requested

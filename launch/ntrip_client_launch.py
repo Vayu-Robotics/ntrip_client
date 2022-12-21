@@ -20,7 +20,7 @@ def generate_launch_description():
           DeclareLaunchArgument('key',                   default_value='None'),
           DeclareLaunchArgument('ca_cert',               default_value='None'),
           DeclareLaunchArgument('debug',                 default_value='false'),
-          DeclareLaunchArgument('rtcm_message_package',  default_value='mavros_msgs'),
+          DeclareLaunchArgument('rtcm_message_package',  default_value='rtcm_msgs'),
 
           # Pass an environment variable to the node
           SetEnvironmentVariable(name='NTRIP_CLIENT_DEBUG', value=LaunchConfiguration('debug')),
